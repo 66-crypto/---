@@ -1,0 +1,982 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Дизайнер сайтов и карточек во Владивостоке | Веб-дизайнер Мария Сорокина</title>
+  <meta name="description" content="Мария Сорокина — дизайнер для креативных индустрий. Цепляющий дизайн сайта за неделю: афиши, инфографика, реклама, лендинги. Быстро, стильно, доступно для начинающего бизнеса.">
+  <meta property="og:title" content="Дизайнер сайтов и карточек во Владивостоке | Мария Сорокина">
+  <meta property="og:description" content="Запоминающийся дизайн для музыкантов, фестивалей, фотографов и продавцов на маркетплейсах. Лендинги, афиши, инфографика, реклама.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://example.github.io/">
+  <meta property="og:image" content="https://placehold.co/1200x630/7d74a8/FDF1E2?text=Maria+Sorokina+Design">
+  <meta property="og:locale" content="ru_RU">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <style>
+    /* Шрифты: Eugusto cyr + Onset — подключаем через @font-face с заглушками-фолбэками,
+       так как эти шрифты могут быть недоступны. Если у вас есть лицензионные файлы,
+       замените src на относительные пути (например, ./fonts/Eugusto.woff2). */
+    @font-face {
+      font-family: 'Eugusto';
+      src: local('Eugusto Cyr'), local('Eugusto');
+      font-weight: 400;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Onset';
+      src: local('Onset');
+      font-weight: 400;
+      font-display: swap;
+    }
+
+    :root {
+      --cream: #FDF1E2;
+      --purple: #7d74a8;
+      --purple-dark: #5c5480;
+      --text: #2e2a3a;
+      --glass-bg: rgba(253, 241, 226, 0.35);
+      --glass-border: rgba(125, 116, 168, 0.35);
+      --shadow: 0 8px 32px rgba(46, 42, 58, 0.12);
+      --radius: 20px;
+      --font-heading: 'Eugusto', 'Georgia', serif;
+      --font-body: 'Onset', 'Segoe UI', system-ui, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--text);
+      background-color: var(--cream);
+      background-image:
+        radial-gradient(circle at 15% 20%, rgba(125, 116, 168, 0.28) 0%, transparent 45%),
+        radial-gradient(circle at 85% 70%, rgba(125, 116, 168, 0.22) 0%, transparent 40%),
+        radial-gradient(circle at 50% 100%, rgba(253, 241, 226, 0.9) 0%, transparent 60%);
+      background-attachment: fixed;
+      min-height: 100vh;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ===== Glassmorphism base ===== */
+    .glass {
+      background: var(--glass-bg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--shadow);
+      border-radius: var(--radius);
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* ===== Typography ===== */
+    h1, h2, h3 {
+      font-family: var(--font-heading);
+      font-weight: 400;
+      line-height: 1.15;
+      letter-spacing: 0.01em;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 7vw, 3.6rem);
+      color: var(--text);
+    }
+
+    h2 {
+      font-size: clamp(1.6rem, 5vw, 2.4rem);
+      margin-bottom: 1.2rem;
+      color: var(--purple-dark);
+    }
+
+    h3 {
+      font-size: 1.25rem;
+      color: var(--purple-dark);
+    }
+
+    p {
+      font-size: 16px;
+      margin-bottom: 1rem;
+      max-width: 62ch;
+    }
+
+    a {
+      color: var(--purple-dark);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    a:hover, a:focus-visible {
+      color: var(--purple);
+    }
+
+    /* ===== Buttons ===== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 12px 28px;
+      font-family: var(--font-body);
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--cream);
+      background: var(--purple);
+      border: 1px solid var(--purple-dark);
+      border-radius: 50px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.18s ease, background 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 4px 18px rgba(125, 116, 168, 0.35);
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .btn:hover {
+      background: var(--purple-dark);
+    }
+
+    .btn:active {
+      transform: scale(1.07);
+    }
+
+    .btn:focus-visible {
+      outline: 3px solid var(--purple);
+      outline-offset: 3px;
+    }
+
+    /* ===== Header ===== */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      padding: 10px 0;
+      background: rgba(253, 241, 226, 0.55);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--glass-border);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .logo {
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      color: var(--purple-dark);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+
+    .logo span {
+      display: block;
+      font-family: var(--font-body);
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--purple);
+    }
+
+    .header-nav {
+      display: none;
+    }
+
+    .header-nav a {
+      font-size: 0.95rem;
+      text-decoration: none;
+      color: var(--text);
+      padding: 6px 4px;
+    }
+
+    .header-nav a:hover {
+      color: var(--purple);
+    }
+
+    .header-cta {
+      min-height: 44px;
+      padding: 8px 18px;
+      font-size: 0.9rem;
+    }
+
+    /* ===== Hero ===== */
+    .hero {
+      padding: 48px 0 40px;
+    }
+
+    .hero-grid {
+      display: grid;
+      gap: 28px;
+    }
+
+    .hero-card {
+      padding: 28px 22px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(125, 116, 168, 0.35), transparent 70%);
+      top: -80px;
+      right: -60px;
+      pointer-events: none;
+    }
+
+    .hero-kicker {
+      display: inline-block;
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--purple-dark);
+      background: rgba(125, 116, 168, 0.12);
+      border: 1px solid var(--glass-border);
+      border-radius: 50px;
+      padding: 6px 14px;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      margin-bottom: 16px;
+    }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      margin-bottom: 24px;
+      color: #3d3850;
+      max-width: 40ch;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 22px;
+    }
+
+    .hero-note {
+      font-size: 0.9rem;
+      color: var(--purple-dark);
+      margin: 0;
+    }
+
+    .hero-visual {
+      padding: 22px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .visual-tile {
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid var(--glass-border);
+      background: rgba(253, 241, 226, 0.5);
+      min-height: 90px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      color: var(--purple-dark);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .visual-tile img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .visual-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    /* ===== Sections ===== */
+    section {
+      padding: 40px 0;
+    }
+
+    .section-head {
+      margin-bottom: 26px;
+    }
+
+    .section-head p {
+      color: #4a4460;
+    }
+
+    /* About */
+    .about-grid {
+      display: grid;
+      gap: 24px;
+    }
+
+    .about-card {
+      padding: 26px 22px;
+    }
+
+    .about-facts {
+      list-style: none;
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .about-facts li {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      font-size: 0.98rem;
+      background: rgba(253, 241, 226, 0.45);
+      border: 1px solid var(--glass-border);
+      border-radius: 14px;
+      padding: 12px 14px;
+    }
+
+    .fact-mark {
+      flex: 0 0 auto;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--purple);
+      margin-top: 8px;
+    }
+
+    .about-visual {
+      padding: 24px 22px;
+      display: grid;
+      gap: 14px;
+      align-content: start;
+    }
+
+    .about-visual img {
+      width: 100%;
+      height: auto;
+      border-radius: 14px;
+      border: 1px solid var(--glass-border);
+      display: block;
+    }
+
+    /* Works */
+    .works-grid {
+      display: grid;
+      gap: 20px;
+    }
+
+    .work-card {
+      padding: 20px;
+      display: grid;
+      gap: 12px;
+      transition: transform 0.22s ease, box-shadow 0.22s ease;
+    }
+
+    .work-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 40px rgba(46, 42, 58, 0.16);
+    }
+
+    .work-card img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      border: 1px solid var(--glass-border);
+      display: block;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      background: rgba(125, 116, 168, 0.1);
+    }
+
+    .work-tag {
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--purple);
+      font-weight: 600;
+    }
+
+    .work-card h3 {
+      margin: 0;
+    }
+
+    .work-card p {
+      font-size: 0.95rem;
+      margin: 0;
+      color: #4a4460;
+    }
+
+    /* Contacts / Form */
+    .contact-grid {
+      display: grid;
+      gap: 24px;
+    }
+
+    .contact-card {
+      padding: 26px 22px;
+    }
+
+    .contact-card h2 {
+      margin-top: 0;
+    }
+
+    .contact-list {
+      list-style: none;
+      display: grid;
+      gap: 12px;
+      margin: 20px 0 0;
+    }
+
+    .contact-list li {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      font-size: 0.98rem;
+    }
+
+    .contact-list a {
+      font-weight: 600;
+    }
+
+    .form-card {
+      padding: 26px 22px;
+    }
+
+    .form-card h3 {
+      margin-bottom: 16px;
+    }
+
+    .field {
+      margin-bottom: 16px;
+    }
+
+    .field label {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: var(--purple-dark);
+    }
+
+    .field input,
+    .field select {
+      width: 100%;
+      min-height: 48px;
+      padding: 12px 14px;
+      font-family: var(--font-body);
+      font-size: 16px;
+      color: var(--text);
+      background: rgba(253, 241, 226, 0.7);
+      border: 1px solid var(--glass-border);
+      border-radius: 12px;
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    .field select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 14 9'%3E%3Cpath fill='%237d74a8' d='M7 9 0 0h14z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 16px center;
+      padding-right: 40px;
+    }
+
+    .field input:focus,
+    .field select:focus {
+      border-color: var(--purple);
+      box-shadow: 0 0 0 3px rgba(125, 116, 168, 0.25);
+    }
+
+    .checkbox-row {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      margin-bottom: 20px;
+      font-size: 0.9rem;
+      line-height: 1.45;
+    }
+
+    .checkbox-row input[type="checkbox"] {
+      flex: 0 0 auto;
+      width: 22px;
+      height: 22px;
+      min-height: 22px;
+      margin-top: 2px;
+      accent-color: var(--purple);
+      cursor: pointer;
+    }
+
+    .checkbox-row label {
+      cursor: pointer;
+      margin: 0;
+      font-weight: 400;
+      color: var(--text);
+    }
+
+    .checkbox-row a {
+      font-weight: 600;
+    }
+
+    .form-note {
+      font-size: 0.82rem;
+      color: #5c5480;
+      margin-top: 12px;
+    }
+
+    .form-success {
+      display: none;
+      padding: 18px;
+      border-radius: 14px;
+      background: rgba(125, 116, 168, 0.15);
+      border: 1px solid var(--purple);
+      color: var(--purple-dark);
+      font-weight: 600;
+      margin-top: 16px;
+    }
+
+    .form-success.visible {
+      display: block;
+    }
+
+    /* Footer */
+    .site-footer {
+      padding: 30px 0 40px;
+      border-top: 1px solid var(--glass-border);
+      margin-top: 20px;
+    }
+
+    .footer-inner {
+      display: grid;
+      gap: 12px;
+      font-size: 0.85rem;
+      color: #4a4460;
+    }
+
+    .footer-inner a {
+      color: var(--purple-dark);
+    }
+
+    /* ===== Scroll animations ===== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+      will-change: opacity, transform;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+      .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+      .btn:active {
+        transform: none;
+      }
+      .work-card:hover {
+        transform: none;
+      }
+    }
+
+    /* ===== Responsive ===== */
+    @media (min-width: 600px) {
+      .hero-grid {
+        grid-template-columns: 1.1fr 0.9fr;
+        align-items: center;
+      }
+      .hero {
+        padding: 64px 0 48px;
+      }
+      .hero-card {
+        padding: 36px 32px;
+      }
+      .about-grid {
+        grid-template-columns: 1fr 0.85fr;
+        align-items: start;
+      }
+      .works-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .contact-grid {
+        grid-template-columns: 1fr 1fr;
+        align-items: start;
+      }
+    }
+
+    @media (min-width: 900px) {
+      .header-nav {
+        display: flex;
+        gap: 22px;
+      }
+      .hero-grid {
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 40px;
+      }
+      .works-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      section {
+        padding: 56px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== Header ===== -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="#top" aria-label="Мария Сорокина — на главную">
+        Мария Сорокина
+        <span>дизайн для креативных</span>
+      </a>
+      <nav class="header-nav" aria-label="Основная навигация">
+        <a href="#about">Обо мне</a>
+        <a href="#works">Работы</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+      <a class="btn header-cta" href="#contacts">Записаться</a>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ===== Hero ===== -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-card glass reveal">
+            <span class="hero-kicker">Дизайнер для креативных индустрий</span>
+            <h1 id="hero-title">Цепляющий дизайн сайта за неделю</h1>
+            <p class="hero-sub">Помогаю музыкантам, фестивалям, фотографам и продавцам на маркетплейсах выделяться, продавать и запоминаться. Быстро, стильно и по цене, понятной начинающему бизнесу.</p>
+            <div class="hero-actions">
+              <a class="btn" href="#contacts">Обсудить проект</a>
+              <a class="btn" href="#works" style="background: transparent; color: var(--purple-dark); box-shadow: none;">Смотреть работы</a>
+            </div>
+            <p class="hero-note">Стоимость проекта — от [ЗАМЕНИТЬ] ₽ · срок — от [ЗАМЕНИТЬ] дней</p>
+          </div>
+
+          <div class="hero-visual glass reveal" aria-hidden="true">
+            <div class="visual-tile">
+              <img src="https://placehold.co/560x300/7d74a8/FDF1E2?text=Landing+Page" alt="Превью лендинга для музыкального фестиваля" width="560" height="300" loading="lazy">
+            </div>
+            <div class="visual-row">
+              <div class="visual-tile">
+                <img src="https://placehold.co/260x200/FDF1E2/7d74a8?text=Poster" alt="Афиша музыкального события в фиолетово-кремовых тонах" width="260" height="200" loading="lazy">
+              </div>
+              <div class="visual-tile">
+                <img src="https://placehold.co/260x200/7d74a8/FDF1E2?text=Infographic" alt="Пример инфографики для карточки товара на маркетплейсе" width="260" height="200" loading="lazy">
+              </div>
+            </div>
+            <div class="visual-tile">
+              <img src="https://placehold.co/560x220/FDF1E2/7d74a8?text=Ad+Creatives" alt="Рекламные креативы для социальных сетей" width="560" height="220" loading="lazy">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== About ===== -->
+    <section id="about" aria-labelledby="about-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2 id="about-title">Обо мне</h2>
+          <p>Меня зовут Мария Сорокина. Я делаю визуал, который невозможно пролистать: от афиш и билетов до лендингов и карточек товаров.</p>
+        </div>
+        <div class="about-grid">
+          <div class="about-card glass reveal">
+            <h3>Дизайн с насмотренностью и маркетингом</h3>
+            <p>Соединяю необычное видение и знания маркетинга. Разбираюсь, как привлекать клиентов, и делаю так, чтобы ваш проект не просто был красивым, а работал на продажи и узнаваемость.</p>
+            <ul class="about-facts">
+              <li><span class="fact-mark" aria-hidden="true"></span><span>Быстро и стильно: цепляющий дизайн сайта за неделю</span></li>
+              <li><span class="fact-mark" aria-hidden="true"></span><span>Приемлемая цена для начинающего бизнеса — от [ЗАМЕНИТЬ] ₽</span></li>
+              <li><span class="fact-mark" aria-hidden="true"></span><span>Разноплановость: инфографика, дашборды, афиши, реклама, лендинги</span></li>
+              <li><span class="fact-mark" aria-hidden="true"></span><span>Уже помогла [ЗАМЕНИТЬ] креативным проектам во Владивостоке и не только</span></li>
+            </ul>
+          </div>
+          <div class="about-visual glass reveal">
+            <img src="https://placehold.co/480x600/7d74a8/FDF1E2?text=Maria+Sorokina" alt="Портрет дизайнера Марии Сорокиной" width="480" height="600" loading="lazy">
+            <p style="margin:0; font-size:0.92rem; color:#4a4460;">Визуальная насмотренность, необычное видение и фокус на результате. Работаю с креативными индустриями: музыка, фестивали, фотография, маркетплейсы.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Works ===== -->
+    <section id="works" aria-labelledby="works-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2 id="works-title">Мои работы</h2>
+          <p>Несколько направлений, в которых я создаю запоминающийся дизайн. Все проекты — [ЗАМЕНИТЬ] на реальные кейсы.</p>
+        </div>
+        <div class="works-grid">
+          <article class="work-card glass reveal">
+            <img src="https://placehold.co/560x420/7d74a8/FDF1E2?text=Landing" alt="Лендинг для музыкального фестиваля — пример работы" width="560" height="420" loading="lazy">
+            <span class="work-tag">Лендинг</span>
+            <h3>Промо-сайт фестиваля</h3>
+            <p>Яркая посадочная страница с афишей, лайнапом и продажей билетов. Конверсия — [ЗАМЕНИТЬ]%.</p>
+          </article>
+
+          <article class="work-card glass reveal">
+            <img src="https://placehold.co/560x420/FDF1E2/7d74a8?text=Advertising" alt="Рекламные креативы для музыкальной группы" width="560" height="420" loading="lazy">
+            <span class="work-tag">Реклама</span>
+            <h3>Креативы для соцсетей</h3>
+            <p>Серия баннеров для музыкальной группы. Охват вырос на [ЗАМЕНИТЬ]%, а узнаваемость — заметно.</p>
+          </article>
+
+          <article class="work-card glass reveal">
+            <img src="https://placehold.co/560x420/7d74a8/FDF1E2?text=Infographics" alt="Инфографика для карточки товара на маркетплейсе" width="560" height="420" loading="lazy">
+            <span class="work-tag">Инфографика</span>
+            <h3>Карточки для маркетплейса</h3>
+            <p>Понятная инфографика и стильные слайды. Продажи выросли на [ЗАМЕНИТЬ]% за первый месяц.</p>
+          </article>
+
+          <article class="work-card glass reveal">
+            <img src="https://placehold.co/560x420/FDF1E2/7d74a8?text=Posters+%26+Tickets" alt="Афиши и билеты для музыкального события" width="560" height="420" loading="lazy">
+            <span class="work-tag">Афиши и билеты</span>
+            <h3>Афиши и билеты</h3>
+            <p>Запоминающийся визуал для события: от афиши до билета. Посещаемость — [ЗАМЕНИТЬ] человек.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Contacts ===== -->
+    <section id="contacts" aria-labelledby="contacts-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2 id="contacts-title">Контакты</h2>
+          <p>Оставьте заявку — и я свяжусь с вами, чтобы обсудить задачу, сроки и стоимость.</p>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-card glass reveal">
+            <h3>Связаться напрямую</h3>
+            <p>Работаю с креативными проектами во Владивостоке и по всей России. Быстро отвечаю в мессенджерах.</p>
+            <ul class="contact-list">
+              <li><span class="fact-mark" aria-hidden="true"></span><span>Telegram: <a href="https://t.me/[ЗАМЕНИТЬ]" target="_blank" rel="noopener noreferrer">@[ЗАМЕНИТЬ]</a></span></li>
+              <li><span class="fact-mark" aria-hidden="true"></span><span>Телефон: <a href="tel:+7[ЗАМЕНИТЬ]">+7 [ЗАМЕНИТЬ]</a></span></li>
+              <li><span class="fact-mark" aria-hidden="true"></span><span>Почта: <a href="mailto:[ЗАМЕНИТЬ]@example.com">[ЗАМЕНИТЬ]@example.com</a></span></li>
+              <li><span class="fact-mark" aria-hidden="true"></span><span>Владивосток, работаю удалённо</span></li>
+            </ul>
+            <p class="form-note" style="margin-top:18px;">Средний срок запуска — [ЗАМЕНИТЬ] дней. Стоимость — от [ЗАМЕНИТЬ] ₽.</p>
+          </div>
+
+          <div class="form-card glass reveal">
+            <h3>Записаться на консультацию</h3>
+            <form id="contact-form" novalidate>
+              <div class="field">
+                <label for="name">Имя</label>
+                <input type="text" id="name" name="name" autocomplete="name" placeholder="Как к вам обращаться" required>
+              </div>
+
+              <div class="field">
+                <label for="phone">Телефон</label>
+                <input type="tel" id="phone" name="phone" autocomplete="tel" inputmode="tel" placeholder="+7 (___) ___-__-__" required>
+              </div>
+
+              <div class="field">
+                <label for="service">Выбор услуги</label>
+                <select id="service" name="service" required>
+                  <option value="" disabled selected>Выберите услугу</option>
+                  <option value="landing">Лендинг</option>
+                  <option value="ads">Реклама</option>
+                  <option value="infographics">Инфографика</option>
+                  <option value="posters">Афиши и билеты</option>
+                  <option value="other">Другое</option>
+                </select>
+              </div>
+
+              <div class="checkbox-row">
+                <input type="checkbox" id="consent" name="consent" required>
+                <label for="consent">Я согласен на обработку персональных данных и принимаю <a href="#privacy" id="privacy-link">политику конфиденциальности</a></label>
+              </div>
+
+              <button class="btn" type="submit" style="width:100%;">Отправить заявку</button>
+
+              <div class="form-success" id="form-success" role="status" aria-live="polite">
+                Спасибо! Заявка отправлена. Я свяжусь с вами в ближайшее время.
+              </div>
+
+              <p class="form-note">После отправки откроется подтверждение. Мы не передаём данные третьим лицам.</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Политика конфиденциальности (якорь) -->
+    <section id="privacy" aria-labelledby="privacy-title" style="padding-top:0;">
+      <div class="container">
+        <div class="glass reveal" style="padding: 24px 22px;">
+          <h3 id="privacy-title" style="margin-bottom:10px;">Политика конфиденциальности</h3>
+          <p style="font-size:0.92rem; color:#4a4460; margin-bottom:0;">Данные используются только для связи по заявке. Политика — [ЗАМЕНИТЬ] на ваш текст. Отправляя форму, вы соглашаетесь с обработкой персональных данных.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p style="margin:0;">© <span id="year">2025</span> Мария Сорокина · Дизайнер сайтов и карточек во Владивостоке</p>
+      <p style="margin:0;">Сделано с вниманием к деталям. <a href="#privacy">Политика конфиденциальности</a></p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      'use strict';
+
+      // ===== Год в футере =====
+      var yearEl = document.getElementById('year');
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+      // ===== Scroll reveal (с уважением к prefers-reduced-motion) =====
+      var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var reveals = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
+
+      if (reduceMotion || !('IntersectionObserver' in window)) {
+        reveals.forEach(function (el) { el.classList.add('is-visible'); });
+      } else {
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+        reveals.forEach(function (el) { observer.observe(el); });
+      }
+
+      // ===== Форма =====
+      var form = document.getElementById('contact-form');
+      var success = document.getElementById('form-success');
+      var nameInput = document.getElementById('name');
+      var phoneInput = document.getElementById('phone');
+      var serviceInput = document.getElementById('service');
+      var consent = document.getElementById('consent');
+
+      function showError(field, message) {
+        field.style.borderColor = '#c0392b';
+        field.setAttribute('aria-invalid', 'true');
+        field.focus({ preventScroll: false });
+        if (typeof message === 'string') {
+          // Не используем alert: просто визуально помечаем. Для доступности можно добавить текст.
+        }
+      }
+
+      function clearError(field) {
+        field.style.borderColor = '';
+        field.removeAttribute('aria-invalid');
+      }
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        var valid = true;
+
+        // Имя
+        if (!nameInput.value.trim() || nameInput.value.trim().length < 2) {
+          showError(nameInput);
+          valid = false;
+        } else {
+          clearError(nameInput);
+        }
+
+        // Телефон — простейшая проверка на цифры
+        var digits = phoneInput.value.replace(/\D/g, '');
+        if (digits.length < 10) {
+          showError(phoneInput);
+          valid = false;
+        } else {
+          clearError(phoneInput);
+        }
+
+        // Услуга
+        if (!serviceInput.value) {
+          showError(serviceInput);
+          valid = false;
+        } else {
+          clearError(serviceInput);
+        }
+
+        // Чекбокс обязателен и не отмечен заранее
+        if (!consent.checked) {
+          consent.focus();
+          // Мягко подсвечиваем label
+          var label = document.querySelector('label[for="consent"]');
+          if (label) label.style.color = '#c0392b';
+          setTimeout(function () {
+            if (label) label.style.color = '';
+          }, 3000);
+          valid = false;
+        }
+
+        if (!valid) return;
+
+        // Успешная отправка (демо, без бэкенда)
+        success.classList.add('visible');
+        form.querySelector('button[type="submit"]').disabled = true;
+        form.querySelector('button[type="submit"]').textContent = 'Отправлено';
+
+        // Сброс полей (необязательно)
+        // form.reset(); // если нужно очищать — раскомментируйте
+
+        // Прокрутка к сообщению для мобильных
+        success.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'nearest' });
+      });
+
+      // Снимаем ошибку при вводе
+      [nameInput, phoneInput, serviceInput].forEach(function (el) {
+        el.addEventListener('input', function () { clearError(el); });
+        el.addEventListener('change', function () { clearError(el); });
+      });
+
+      // Ссылка на политику не должна отправлять форму (на всякий случай)
+      var privacyLink = document.getElementById('privacy-link');
+      if (privacyLink) {
+        privacyLink.addEventListener('click', function (e) {
+          // Разрешаем переход по якорю
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>
